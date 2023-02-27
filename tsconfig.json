@@ -12,7 +12,7 @@
     "baseUrl": "src",
     "paths": {
       "@valorant/*": ["valorant/*"],
-      "@lol/*": ["lol/*"],
+      "@lol/*": ["leagueOfLegends/*"],
       "@data/*": ["../data/*"]
     },
     "incremental": true,

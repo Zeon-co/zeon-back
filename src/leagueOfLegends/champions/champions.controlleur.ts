@@ -1,18 +1,17 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Param, NotFoundException } from '@nestjs/common';
 import { ChampionsService } from './champions.service';
-import { Get, Param, NotFoundException } from '@nestjs/common';
 
 @Controller('champions')
 export class ChampionsController {
   constructor(private readonly championsService: ChampionsService) {}
 
   @Get()
-  async getAllChampionss(): Promise<any> {
-    const championss = await this.championsService.getAllChampions();
-    if (!championss) {
+  async getAllChampions(): Promise<any> {
+    const champions = await this.championsService.getAllChampions();
+    if (!champions) {
       throw new NotFoundException(`No customers found`);
     }
-    return { status: true, data: championss };
+    return { status: true, data: champions };
   }
 
   @Get(':name')
