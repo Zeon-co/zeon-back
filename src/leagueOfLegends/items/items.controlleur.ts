@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { ItemsService } from 'league-of-legend/items/items.service';
+import { ItemsService } from 'leagueOfLegends/items/items.service';
 
 @Controller('items')
 export class ItemsController {

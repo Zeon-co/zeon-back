@@ -9,7 +9,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "populateAndStart": "node data/valorant/character-populate.ts && node data/league-of-legends/champions/champions-populate.ts && nest start",
+    "populateAndStart": "cd data/valorant && node character-populate.ts && cd ../league-of-legends/champions && node champions-populate.ts && cd ../../../ && nest start",
     "populate": "node data/valorant/character-populate.ts && node data/league-of-legends/champions/champions-populate.ts",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
