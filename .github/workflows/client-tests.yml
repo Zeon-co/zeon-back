@@ -1,8 +1,6 @@
 name: neon-back-workflow
 
-
 on:
-
   pull_request
 
 jobs:
@@ -13,3 +11,14 @@ jobs:
         uses: actions/checkout@v2
       - name: run test
         run: npm i && npm test
+      - name: Build and push
+        if: github.ref == 'refs/heads/main'
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          context: ./
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/zeon-back:latest
+          name: jest-and-docker-ci
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  
